@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_history">
+
+
+    <fragment
+        android:id="@+id/navigation_history"
+        android:name="com.waro.hero.fragments.HistoryFragment"
+        android:label="@string/history"
+        tools:layout="@layout/fragment_history">
+        <action
+            android:id="@+id/action_navigation_history_to_orderSummaryFragment"
+            app:destination="@id/orderSummaryFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/orderSummaryFragment"
+        android:name="com.waro.hero.fragments.OrderSummaryFragment"
+        android:label="OrderSummaryFragment" />
+</navigation>
