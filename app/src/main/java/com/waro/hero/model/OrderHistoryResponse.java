@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 public class OrderHistoryResponse implements Parcelable {
 
-
     @SerializedName("status")
     private String status;
     @SerializedName("orders")
@@ -62,6 +61,8 @@ public class OrderHistoryResponse implements Parcelable {
         private int id;
         @SerializedName("customer_id")
         private String customerId;
+        @SerializedName("discount_amt")
+        private String discount_amt;
         @SerializedName("total_amt")
         private String totalAmt;
         @SerializedName("address_id")
@@ -93,6 +94,7 @@ public class OrderHistoryResponse implements Parcelable {
         protected OrdersBean(Parcel in) {
             id = in.readInt();
             customerId = in.readString();
+            discount_amt = in.readString();
             totalAmt = in.readString();
             addressId = in.readString();
             shopId = in.readString();
@@ -132,6 +134,14 @@ public class OrderHistoryResponse implements Parcelable {
 
         public void setCustomerId(String customerId) {
             this.customerId = customerId;
+        }
+
+        public String getDiscount_amt() {
+            return discount_amt;
+        }
+
+        public void setDiscount_amt(String discount_amt) {
+            this.discount_amt = discount_amt;
         }
 
         public String getTotalAmt() {
@@ -256,7 +266,7 @@ public class OrderHistoryResponse implements Parcelable {
             dest.writeString(updatedAt);
         }
 
-        public static class AddressBean implements Parcelable{
+        public static class AddressBean {
             @SerializedName("id")
             private int id;
             @SerializedName("name")
@@ -277,31 +287,6 @@ public class OrderHistoryResponse implements Parcelable {
             private String updatedAt;
             @SerializedName("created_at")
             private String createdAt;
-
-            protected AddressBean(Parcel in) {
-                id = in.readInt();
-                name = in.readString();
-                phone = in.readString();
-                customerId = in.readString();
-                addr1 = in.readString();
-                addr2 = in.readString();
-                pincode = in.readString();
-                landmark = in.readString();
-                updatedAt = in.readString();
-                createdAt = in.readString();
-            }
-
-            public static final Creator<AddressBean> CREATOR = new Creator<AddressBean>() {
-                @Override
-                public AddressBean createFromParcel(Parcel in) {
-                    return new AddressBean(in);
-                }
-
-                @Override
-                public AddressBean[] newArray(int size) {
-                    return new AddressBean[size];
-                }
-            };
 
             public int getId() {
                 return id;
@@ -381,25 +366,6 @@ public class OrderHistoryResponse implements Parcelable {
 
             public void setCreatedAt(String createdAt) {
                 this.createdAt = createdAt;
-            }
-
-            @Override
-            public int describeContents() {
-                return 0;
-            }
-
-            @Override
-            public void writeToParcel(Parcel dest, int flags) {
-                dest.writeInt(id);
-                dest.writeString(name);
-                dest.writeString(phone);
-                dest.writeString(customerId);
-                dest.writeString(addr1);
-                dest.writeString(addr2);
-                dest.writeString(pincode);
-                dest.writeString(landmark);
-                dest.writeString(updatedAt);
-                dest.writeString(createdAt);
             }
         }
 

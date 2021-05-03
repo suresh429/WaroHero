@@ -2,6 +2,14 @@ apply plugin: 'com.android.application'
 
 android {
 
+    signingConfigs {
+        release {
+            storeFile file('E:\\Android projects\\WaroHero\\jks\\warohero.jks')
+            storePassword 'warohero'
+            keyAlias 'warohero'
+            keyPassword 'warohero'
+        }
+    }
     compileSdkVersion 30
 
     buildFeatures {
@@ -17,6 +25,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.release
     }
 
     buildTypes {
