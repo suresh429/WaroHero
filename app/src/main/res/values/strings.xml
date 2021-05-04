@@ -76,6 +76,7 @@
     <string name="coupon_discount">Coupon Discount</string>
     <string name="no_orders_found">No Orders Found....</string>
     <string name="discount_amount">Discount Amount</string>
+    <string name="coupon_code">Coupon Applied</string>
 
 
 </resources>

@@ -66,17 +66,24 @@ public class OrderSummaryFragment extends Fragment {
                 .into(binding.imgShop);
 
         binding.txtOrderStatus.setText("This Order was "+ordersBeanList.get(position).getStatus());
-        binding.txtItemTotalPrice.setText("\u20b9"+ordersBeanList.get(position).getTotalAmt());
+
+        double itemTotal = Double.parseDouble(ordersBeanList.get(position).getTotalAmt()) - (Double.parseDouble(ordersBeanList.get(position).getDeliveryCharges()) - Double.parseDouble(ordersBeanList.get(position).getDiscountAmt()));
+        binding.txtItemTotalPrice.setText("\u20b9"+String.format("%.2f",itemTotal));
         binding.txtDeliveryPrice.setText("\u20b9"+ ordersBeanList.get(position).getDeliveryCharges());
 
-        if (ordersBeanList.get(position).getDiscount_amt() != null) {
-            binding.txtDiscountPrice.setText("\u20b9" + ordersBeanList.get(position).getDiscount_amt());
+        if (ordersBeanList.get(position).getDiscountAmt() != null) {
+            binding.txtDiscountPrice.setText("-"+"\u20b9" + ordersBeanList.get(position).getDiscountAmt());
         }else {
             binding.txtDiscountPrice.setText("\u20b9" + "0.00");
         }
 
-        double total = Double.parseDouble(ordersBeanList.get(position).getTotalAmt()) + Double.parseDouble(ordersBeanList.get(position).getDeliveryCharges());
-        binding.txtGrandTotalAmount.setText("\u20b9"+String.format("%.2f", total));
+        if ( !ordersBeanList.get(position).getCouponId().equalsIgnoreCase("0")) {
+            binding.txtCouponCode.setText(ordersBeanList.get(position).getCoupon().getCouponCode());
+        }else {
+            binding.txtCouponCode.setText("No Coupon Applied");
+        }
+
+        binding.txtGrandTotalAmount.setText("\u20b9"+ordersBeanList.get(position).getTotalAmt());
         binding.txtOrderNumber.setText(""+ordersBeanList.get(position).getId());
         binding.txtOrderMode.setText("Cash on Delivery");
 
