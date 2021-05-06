@@ -78,5 +78,12 @@
     <string name="discount_amount">Discount Amount</string>
     <string name="coupon_code">Coupon Applied</string>
 
+    <string-array name="status_update">
+        <item name="update_status">Update Status ?</item>
+        <item name="on-the-way">on-the-way</item>
+        <item name="delivered">delivered</item>
+        <item name="cancelled">cancelled</item>
+    </string-array>
+
 
 </resources>

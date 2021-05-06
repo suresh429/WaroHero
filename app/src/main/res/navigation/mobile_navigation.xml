@@ -20,5 +20,12 @@
     <fragment
         android:id="@+id/orderSummaryFragment"
         android:name="com.waro.hero.fragments.OrderSummaryFragment"
-        android:label="OrderSummaryFragment" />
+        android:label="OrderSummaryFragment" >
+
+
+        <action
+            app:launchSingleTop="true"
+            android:id="@+id/action_orderSummaryFragment_to_navigation_history"
+            app:destination="@id/navigation_history" />
+    </fragment>
 </navigation>

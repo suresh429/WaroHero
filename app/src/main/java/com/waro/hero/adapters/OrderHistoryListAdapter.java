@@ -41,6 +41,7 @@ public class OrderHistoryListAdapter extends RecyclerView.Adapter<OrderHistoryLi
 
         holder.rowItemBinding.txtRestuarntName.setText(modelList.get(position).getShop().getShopname());
         holder.rowItemBinding.txtRestuarntLocation.setText(modelList.get(position).getShop().getAddress());
+        holder.rowItemBinding.txtStatusType.setText(modelList.get(position).getStatus());
 
 
         holder.rowItemBinding.txtAmount.setText("\u20b9"+modelList.get(position).getTotalAmt());
